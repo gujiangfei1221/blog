@@ -1,0 +1,54 @@
+---
+layout: mypost
+title:  "如何美化博客"
+categories: [jekyll]
+---
+
+## 1、背景
+[上一篇博客](https://gujiangfei1221.github.io/blog/posts/2024/09/22/%E5%A6%82%E4%BD%95%E7%99%BD%E5%AB%96github-pages%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2.html)我们讲了如何同个github pages+Jekyll+github actions快速的搭建一个个人博客，但是我们的博客效果是默认的主题，比较平淡，而折腾才是永恒的。
+
+所以我们去github搜索了下jekyll主题这个关键字，然后most stars排序，直接使用别人已经做好的主题。
+
+我这边挑选了TMaize大佬分享的一个[主题](https://github.com/TMaize/tmaize-blog)
+
+## 2、怎么使用
+首先访问大佬的仓库，我们可以看到它其实就是一个标准的jekyll的目录结构，不过大佬额外写了一些样式和脚本，也就是我们仍然可以按照jekyll来使用
+
+1、clone仓库到本地
+
+2、进入根目录，执行命令`bundle install`，安装相关依赖
+
+> 我这边安装的时候遇到了错误，提示我安装不了wdm，直接AI问一下，得知是一个监听文件变化的插件，直接去gemfile文件里面把这个插件注释，在执行一遍命令即可
+
+3、执行`bundle exec jekyll serve`，打开浏览器访问`http://localhost:4000/`，即可看到效果，如图：
+
+![](1.png)
+
+4、一些配置
+
+* _config.yml按照注释自己按需修改，如图：
+
+![](2.png)
+
+* CNAME文件删除
+* _posts目录下清空相关文件，posts目录也清空相关文件
+
+5、发布新文章
+
+在_posts目录下新建文章，格式为`yyyy-MM-dd-xxx.md`，然后顶部的头信息抄一下，如下：
+```angular2html
+---
+layout: mypost
+title:  "如何白嫖github pages搭建个人博客"
+categories: [jekyll]
+---
+```
+这样就会直接使用大佬自定义的1个模板
+
+markdown文件中相关的图片需要放到posts目录下，按照年月日新建对应的文件夹，然后markdown文件中直接写图片名称即可，很方便
+
+6、发布文章
+
+当我们的文章写好以后，直接git提交到github，会触发我们的github action自动部署，等2分钟左右访问`https://your_username.github.io/blog/`即可看到效果
+
+
