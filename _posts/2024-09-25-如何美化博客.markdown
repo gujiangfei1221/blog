@@ -32,6 +32,7 @@ categories: [jekyll]
 
 * CNAME文件删除
 * _posts目录下清空相关文件，posts目录也清空相关文件
+* static/img目录下放自己的图片做为logo
 
 5、发布新文章
 
