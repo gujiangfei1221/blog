@@ -2,7 +2,7 @@
 layout: post
 title:  "如何白嫖github pages搭建个人博客"
 date:   2024-09-22 12:36:20 +0800
-categories: jekyll update
+categories: jekyll
 ---
 ## 1、缘由
 最近忽然想开始写博客了，一方面作为记录，方便后续遇到问题可以快速查阅，另一个方面也想分享下学习到的知识。
