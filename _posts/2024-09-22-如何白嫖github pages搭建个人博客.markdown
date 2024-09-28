@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title:  "如何白嫖github pages搭建个人博客"
-categories: [jekyll]
+categories: [博客搭建]
 ---
 
 ## 1、缘由
