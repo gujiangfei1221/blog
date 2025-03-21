@@ -44,7 +44,7 @@ categories: [知识管理]
 
 3、执行命令：`enex2notion --token yourtoken  ./output/xx.enex`，就可以将印象笔记的数据导入到notion
 
-4、如果遇到报错：`equests.exceptions.SSLError: HTTPSConnectionPool(host='www.notion.so', port=443): Max retries exceeded with url: /api/v3/loadUserContent (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:992)')))`，可以声明下环境变量，命令为：`for /f "tokens=*" %i in ('python -c "import certifi; print(certifi.where())"') do set REQUESTS_CA_BUNDLE=%i`，然后在执行导入命令即可
+4、如果遇到报错：`equests.exceptions.SSLError: HTTPSConnectionPool(host='www.notion.so', port=443): Max retries exceeded with url: /api/v3/loadUserContent (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:992)')))`，可以声明下环境变量，windows环境的命令为：`for /f "tokens=*" %i in ('python -c "import certifi; print(certifi.where())"') do set REQUESTS_CA_BUNDLE=%i`，mac环境的命令为：`export REQUESTS_CA_BUNDLE=$(python -c "import certifi; print(certifi.where())")`，然后在执行导入命令即可
 
 以上我们就可以完成印象笔记迁移notion了
 
