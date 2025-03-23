@@ -1,0 +1,54 @@
+---
+layout: mypost
+title:  "如何迁移印象笔记文档到notion"
+categories: [知识管理]
+---
+
+## 1、起因
+我之前使用的笔记软件一直是印象笔记，但是随着notion等软件的异军突起，以及印象笔记一直弹框引导用户购买会员，我决定将笔记迁移到notion
+
+本文会一步步的介绍如何将印象笔记迁移到notion，以及如何解决遇到的相关问题
+
+## 2、步骤
+### 2.1、导出印象笔记
+1、先用conda新建1个环境，命令为：`conda create --name evernote python=3.10.0`,创建完毕后激活环境，命令为：`conda activate evernote`
+
+2、安装导出印象笔记的库，命令为：`pip3 install evernote-backup`
+
+3、创建1个文件夹，在文件夹根目录下执行命令，初始化数据库：`evernote-backup init-db --backend china -t yourtoken`，其中token需要从印象笔记官网创建，打开网址：https://app.yinxiang.com/api/DeveloperToken.action （需要登录下），根据网页提示创建token，将生成的token拷贝下
+
+![](1.png)
+
+4、初始化数据库以后，同步下笔记数据到数据库，执行命令：`evernote-backup sync`
+
+5、导出enex笔记，在文件夹根目录创建1个文件夹：output，执行命令：`evernote-backup export /output`
+
+到这步，我们已经完成了印象笔记数据的导出
+
+### 2.2、导入到notion
+1、导入notion，我们需要先安装1个库：`pip install enex2notion`，但是先不要急着安装，因为官方的包在实际导入过程中会遇错误：`“ValueError: Uploaded file URL format changed: attachment:9c60fec7-39f9-4e7b-b847-32d8d67354f7:e4cbd733-5a02-4ad3-b21e-e66d3911f117.png”`
+
+这边的解决方案是checkout官方的仓库，修改源码，如图：
+
+![](3.png)
+
+然后需要重新打包下，生成wheel文件，官方代码仓库使用的是poetry来管理的，所以还需要安装poetry（具体参考官方文档即可），安装完毕后在根目录执行命令`poetry build`，会生成wheel文件
+
+![](4.png)
+
+执行命令`pip install enex2notion-0.3.1-py3-none-any.whl`，就把改过的enex2notion安装到了本地
+
+2、在修改了官方库的bug后，我们去notion官网获取下token，打开官网：https://www.notion.so 登录下，然后浏览器f12打开调试控制台，刷新下页面，获取token_v2的值，如图：
+
+![](2.png)
+
+3、执行命令：`enex2notion --token yourtoken  ./output/xx.enex`，就可以将印象笔记的数据导入到notion
+
+4、如果遇到报错：`equests.exceptions.SSLError: HTTPSConnectionPool(host='www.notion.so', port=443): Max retries exceeded with url: /api/v3/loadUserContent (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:992)')))`，可以声明下环境变量，windows环境的命令为：`for /f "tokens=*" %i in ('python -c "import certifi; print(certifi.where())"') do set REQUESTS_CA_BUNDLE=%i`，mac环境的命令为：`export REQUESTS_CA_BUNDLE=$(python -c "import certifi; print(certifi.where())")`，然后在执行导入命令即可
+
+以上我们就可以完成印象笔记迁移notion了
+
+## 3、参考
+* https://zhuanlan.zhihu.com/p/601770478
+* https://github.com/vzhd1701/evernote-backup
+* https://github.com/vzhd1701/enex2notion?tab=readme-ov-file
