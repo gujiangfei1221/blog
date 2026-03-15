@@ -33,7 +33,7 @@ categories: [从零手搓我的钢铁侠管家 J.A.R.V.I.S]
 另外我还开发了1个桌面APP版本，可以独立使用，不需要对接"小龙虾"：
 
 <video width="100%" autoplay loop muted playsinline>
-  <source src="![](https://obsidian-1253137600.cos.ap-shanghai.myqcloud.com/obsidian/vidnoteapp.mp4)" type="video/mp4">
+  <source src="https://obsidian-1253137600.cos.ap-shanghai.myqcloud.com/obsidian/vidnoteapp.mp4" type="video/mp4">
 </video>
 
 可以看到使用过程非常丝滑，我只需要把视频的分享链接发给AI助理，它就能调用我的工具进行：视频的下载、语音的提取、AI总结笔记，最后告诉我整个视频的核心内容是什么，大大提升了我的效率，再也不用去把又臭又长的视频完整看完后苦哈哈的做笔记了
