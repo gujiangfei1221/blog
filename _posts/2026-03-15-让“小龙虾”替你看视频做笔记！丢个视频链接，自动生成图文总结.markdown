@@ -25,12 +25,16 @@ categories: [从零手搓我的钢铁侠管家 J.A.R.V.I.S]
 既然现在 AI 这么火爆，既然我都给自己手搓了类似于贾维斯的钢铁侠管家“WeClaw”（也就是最近大火的“小龙虾”同款），那这种机械且耗时的“内容提纯”体力活，**为什么不能让我的 AI 管家全权代劳呢？**
 # 2、成果展示
 
-![[vienotesummary.mp4]]
+<video width="100%" autoplay loop muted playsinline>
+  <source src="https://obsidian-1253137600.cos.ap-shanghai.myqcloud.com/obsidian/vienotesummary.mp4" type="video/mp4">
+</video>
 
 
 另外我还开发了1个桌面APP版本，可以独立使用，不需要对接"小龙虾"：
 
-![[vidnoteapp.mp4]]
+<video width="100%" autoplay loop muted playsinline>
+  <source src="![](https://obsidian-1253137600.cos.ap-shanghai.myqcloud.com/obsidian/vidnoteapp.mp4)" type="video/mp4">
+</video>
 
 可以看到使用过程非常丝滑，我只需要把视频的分享链接发给AI助理，它就能调用我的工具进行：视频的下载、语音的提取、AI总结笔记，最后告诉我整个视频的核心内容是什么，大大提升了我的效率，再也不用去把又臭又长的视频完整看完后苦哈哈的做笔记了
 
